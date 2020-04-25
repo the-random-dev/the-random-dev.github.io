@@ -95,7 +95,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: disqus
+  provider: "disqus"
 
   ## Disqus
   disqus:
