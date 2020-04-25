@@ -95,11 +95,11 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: "disqus"
+  provider: disqus
 
   ## Disqus
   disqus:
-    shortname: the-random-dev-github-io
+    shortname: "the-random-dev-github-io"
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
