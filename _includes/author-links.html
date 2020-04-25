@@ -28,10 +28,10 @@
     {%- endif -%}
 
 
-    {%- if _author.facebook -%}
+    {%- if _author.instagram -%}
       <li title="{{ _locale_string_follow | replace: '[NAME]', 'Facebook' }}">
-        <a class="button button--circle facebook-button" itemprop="sameAs" href="https://www.facebook.com/{{ _author.facebook }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/facebook.svg -%}</div>
+        <a class="button button--circle instagram-button" itemprop="sameAs" href="https://www.instagram.com/{{ _author.facebook }}" target="_blank">
+          <div class="icon">{%- include svg/icon/social/instagram.svg -%}</div>
         </a>
       </li>
     {%- endif -%}
