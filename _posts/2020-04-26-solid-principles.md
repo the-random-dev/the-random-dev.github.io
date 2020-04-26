@@ -15,7 +15,7 @@ S.O.L.I.D principles was introduced by Robert C. Martin, aka Uncle Bob, in 2000 
 
 Those are 5 principles for object-oriented programming that helps you develop a better code quality.
 
-### 𝐒. 𝐒𝐢𝐧𝐠𝐥𝐞 𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐢𝐛𝐢𝐥𝐢𝐭𝐲 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐥𝐞 (SRP)
+### S - Single Responsability Principle (SRP)
 
 "One class should have only one responsibility":  each function, method or class needs to do just one thing, and do it well. For example, if you have created a class Person, a person has a name and surname, date of birth, and other information. But operations like reading and writing it on a database is not a responsibility of a person. So move it those operations to another class.
 
@@ -79,7 +79,7 @@ public class Logger
 ```
 Now our class data just does data operations, while the operation of logging errors is responsibility of Logger class.
 
-### 𝐎. 𝐎𝐩𝐞𝐧 𝐂𝐥𝐨𝐬𝐞𝐝 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐥𝐞 (OCP)
+### O - Open Closed Principle (OCP)
 "Software entities should be open for extension, but closed for modification": This is one of most important principle of OOP, let's do an example, in our software we can send data over Wi-Fi and Ethernet:
 
 ```java
@@ -132,7 +132,7 @@ public abstract class 𝙴𝚝𝚑𝚎𝚛𝚗𝚎𝚝𝙳𝚊𝚝𝚊 𝚎𝚡�
 ```
 In the future, if someone needs to send data over Bluetooth, we extend our class Data (open for extension) but won't change our base class Data (closed for modification). Now we have a more reusable code.
 
-### 𝐋. 𝐋𝐢𝐬𝐤𝐨𝐯 𝐒𝐮𝐛𝐬𝐭𝐢𝐭𝐢𝐭𝐮𝐭𝐢𝐨𝐧 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐥𝐞 (LSP)
+### L - Liskov Substitution Principle (LSP)
 "If S is a subtype of T, then objects of type T may be replaced (or substituted) with objects of type S": WHAT???
 In other words:"If it looks like a duck, quacks like a duck, but need batteries, you probably have the wrong abstraction".
 Let's suppose we have our class Shape:
@@ -153,7 +153,7 @@ public  class 𝙲𝚒𝚛𝚌𝚕𝚎 extends Ellipse
 
 It respects our Open-Closed Principle, and in a real world a circle is a special case of an Ellipse. But it can generate some inconsistence, an user could pass a different value of a width and height. Would we consider one value? Would we generate an Exception? In this case, the problem is that circle does not inherit Ellipse, it is a problem of abstraction.
 
-### 𝐈. 𝐈𝐧𝐭𝐞𝐫𝐟𝐚𝐜𝐞 𝐒𝐞𝐠𝐫𝐞𝐠𝐚𝐭𝐢𝐨𝐧 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐥𝐞 (ISP)
+### I - Interface Segregation Principle (ISP)
 
 "Many client-specific interfaces are better than one general-purpose interface." It basically says, each class should not be forced to implement methods that are not used. In short, it is better more interfaces with less methods than a interface with more methods that won't be implemented on their classes.
 
@@ -195,7 +195,7 @@ public interface IConnection
 ```
 Now we do not need to implement useless methods on our UDP class
 
-### 𝐃. 𝐃𝐞𝐩𝐞𝐧𝐝𝐞𝐧𝐜𝐲 𝐈𝐧𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐥𝐞 (DIP)
+### D. Dependency Inversion Principle (DIP)
 "One should depend upon abstractions, not concretions.": it helps you decoupling your software modules. One example, all databases have operations for connection, writing and reading data. It is better create an interface and a method that wraps those operations than implementing it directly on our classes. If later we change our database, we need just to change the abstraction class and not change all entire application to adapt it to our database.
 
 
