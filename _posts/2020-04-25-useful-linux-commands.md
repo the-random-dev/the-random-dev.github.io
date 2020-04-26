@@ -1,152 +1,153 @@
 ---
 layout: article
-title: Useful Linux Commands
-tags: linux terminal
+title: Basic Shell Commands - Part 1
+tags: linux terminal basic shell
 comments: true
 key: linux-commands-2020-04-25
 sharing: true
 ---
 
-Linux Shell is one of most handful tools for developing and for backend services. Those are some of most linux commands for beginners. 
-
-### ls
-List directory contents.
-
-It allows you to see which files and folders are there. 
-It is a basic but very useful command on linux  terminal.
-
-Use it with  ‘ -la’  if you want to see more details
 
 
-	
-### cd
-Change the current directory.
+Shell is a Command Line Interface (CLI) is a very handful tool for developing and managing systems. Those commands work on Linux and macOS shell. Some of them also work on Microsoft PowerShell terminal. In the first part, let's see how to list directory contents, create directories, and how to edit a text file.
 
-You use this command to navigate between directories. 
+### Listing Directory Contents
 
-It is another essential command on Terminal.
-	
-### mkdir
-Change the current directory.
+When you open a terminal, it opens in a specific folder. Usually it opens in your home folder. To see which files and subdirectories are in a specific directory, we use the command ```ls```
 
-That is the command you need to create a new directory. 
-
-Use it with ‘ -p’ or ‘ --parents’ to create directories and subdirectories.
-	
-### cat
-Concatenate files and print on the standard output.
-
-Examples:
+To see files and folder of current directory:
 ```bash
-~$ cat myfile.txt
+~$ ls 
+```
+Result:
+```bash
+backup  file1.txt  pic.jpg
 ```
 
-It will print on the screen the content of your file.
-```bash
-~$ cat file1.txt file2.txt > file3.txt
-```
-It will concatenate file1.txt and file2.txt then save it on file3.txt
-Concatenate files and print on the standard output.
 
-Examples:
-```bash
-~$ cat myfile.txt
-```
-
-It will print on the screen the content of your file.
+If you wan to see which files are in another directory, you pass it as parameter. Let's see which files are in root directory. The root directory is ```/```
 
 ```bash
-~$ cat file1.txt file2.txt > file3.txt
+~$ ls /
+backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp
 ```
+
+For a detailed list, you can use ```ls -la```:
+
+```bash
+~$ ls -la
+```
+```bash
+total 100
+drwxr-xr-x  24 root root  4096 Apr  7 10:56 .
+drwxr-xr-x  24 root root  4096 Apr  7 10:56 ..
+drwxr-xr-x   2 root root  4096 Mar 30 16:05 bin
+drwxr-xr-x   5 root root  4096 Apr  7 10:57 boot
+drwxr-xr-x   2 root root  4096 Mar 30 15:50 cdrom
+drwxr-xr-x  18 root root  3860 Apr 15 19:18 dev
+drwxr-xr-x  95 root root  4096 Apr 25 15:08 etc
+drwxr-xr-x   3 root root  4096 Mar 30 16:02 home
+drwxr-xr-x  22 root root  4096 Apr 25 15:08 lib
+drwxr-xr-x   2 root root  4096 Feb  3 18:22 lib64
+```
+
+
 	
-It will concatenate file1.txt and file2.txt then save it on file3.txt
-### mv
+### Changing the Current Directory
 
-Move or rename directories and folders.
-	
-Examples:
+Okay, now we can see which files are in any directory, but how can we navigate to another directory? To do it, we can use the command ```cd```
+
+For example, let's suppose we have a directory called *music*. To move there:
 ```bash
-	~$ mv pic001.jpg dog.jpg 
+~$ cd music
 ```
-	
-pic001.jpg will be renamed to dog.jpg.
-```	
-~$ mv brainstorm.txt project
-```
-It will move brainstorm.txt to directory project
-		
-### cp
-
-Copy files and directories.
-	
-Examples:
-
+Now we are inside folder music:
 ```bash
-~$ cp file1.txt file2.txt 
-```
-It copies file1.txt to file2.txt.
-```bash
-~$ cp -rf folder1 backup
-```	
-
-‘ -rf’ copies recursively, that means, it will copy all files and subdirectories from folder1 to folder2.
-
-### rm
-Delete files and directories.
-
-Examples:
-
-```bash
-~$ rm file1.txt
-```
-It deletes file1.txt
-
-```bash
-~$ rm -rf mySecretFolder
+~/music$
 ```
 
-It will delete all files and subdirectories from myScretFolder then will delete the directory itself.
+If you want to go one directory up, just type ```cd ..``:
+```bash
+~/music$ cd ..
+```
+Now we are inside folder music:
+```bash
+~$
+```
+To return our home folder for any directory, just type ```cd```
 	
-### vi/nano
+### Creating directories
 
-Those are the most popular text editors on Terminal.
+To create a directory, we use the command ```mkdir```.
+
+Let's create a folder called "dogs" in our example:
+
+```bash
+~$ mkdir dogs
+```
+Our directory has been created. Let's use ```ls``` command to check it out: 
+```bash
+~$ ls
+```
+Result:
+```bash
+dogs
+```
+
+### Printing and Concatenating files
+
+To print the content of a file in terminal, we use ```cat``` command. 
+
+Let's suppose we have a file called ```lorem.txt``` and we want to print it. To do it:
+```bash
+~$ cat lorem.txt
+```
+Output
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat.  
+```
+
+Now let's suppose we want to print on our terminal files ```lorem.txt``` and ```ipsum.txt``` concatenated:
+```bash
+~$ cat lorem.txt ipsum.txt
+```
+Output
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat. Mauris non quam est. Donec ac arcu vitae ligula blandit interdum eu nec leo. Donec imperdiet faucibus nisl, nec iaculis nulla rutrum fringilla. Aenean in vulputate eros, at vulputate nisi.
+```
+
+Finally, if you want to save it in a file called ```loremIpsum.txt```, we can use the output operator ```>``` to save the concatenation of both:
+
+```bash
+~$ cat lorem.txt ipsum.txt > loremIpsum.txt
+```
+It will generate a file called ```loremIpsum.txt```, that contains the content ```lorem.txt``` and ```ipsum.txt```.
+
 	
-Nano has an intuitive and easier syntax for beginners than Vi.
-	
-Vi on other hand is a powerful and advanced command line editor.
+### Editing a text
+
+Most popular editors on Linux are ```emacs```, ```nano``` and ```vi```. If you have no experience with terminal, I highly recommend using ```nano```. ```emacs``` and ```vi``` are powerful text editors, but ```nano``` is a pretty easier for beginners.
+
+To create or edit our text, just type ```nano``` and the filename. Let's edit our file lorem.txt
 
 ```shell
-	~$ vi file1.txt
+	~$ nano lorem.txt
 ```
 ```bash
-~$ nano file1.txt
-```	
-### sudo
-It allows to execute a command as another user. That means, you can run a specific command as root or another user on the current section.
-	
-Example:
+  GNU nano 2.9.3                         lorem.txt                                    
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci
+malesuada ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat 
+id diam eu consequat.  
 
-```bash
-$ mkdir secret
-mkdir: cannot create directory ‘secret’: Permission denied
 
-/$ sudo mkdir myFolder
-[sudo] password for user:
 
-```	
-The current user needs to be allowed on /etc/sudoers to use it.
-
-	
-
-	
-### man
-
-Man is an interface to the on-line reference manuals. 
-	
-It is a manual of linux commands and its syntax. Sometimes you get the answer here faster than searching on Google =)
-	
-Examples:
-```bash
-	~$ man top
+                                                                                      
+^G Get Help   ^O Write Out  ^W Where Is   ^K Cut Text   ^J Justify    ^C Cur Pos
+^X Exit       ^R Read File  ^\ Replace    ^U Uncut Text ^T To Spell   ^_ Go To Line
 ```
-It will print the description of top command. Press ‘q’ to close it.
+
+to save it, press ```CTRL + X``` then ```Y``` to confirm.
+
+### Conclusion
+
+This was the first part of basic Linux shell commands. In next post, we will continue with  operations on files and folders. See you there!
