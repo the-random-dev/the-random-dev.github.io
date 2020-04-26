@@ -3,7 +3,7 @@ layout: article
 title: S.O.L.I.D Principles
 tags: programming SOLID principles quality
 comments: true
-key: linux-commands-2020-04-25
+key: solid-principles-2020-04-26
 sharing: true
 description: Do you have a S.O.L.I.D. code?
 S.O.L.I.D principles was introduced by Robert C. Martin, aka Uncle Bob, in 2000 and the acronym itself was introduced by Michael Feathers.
