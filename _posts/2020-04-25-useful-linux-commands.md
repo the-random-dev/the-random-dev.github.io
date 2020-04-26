@@ -104,7 +104,8 @@ Let's suppose we have a file called ```lorem.txt``` and we want to print it. To 
 ```
 Output
 ```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat.  
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada
+ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat.  
 ```
 
 Now let's suppose we want to print on our terminal files ```lorem.txt``` and ```ipsum.txt``` concatenated:
@@ -113,7 +114,11 @@ Now let's suppose we want to print on our terminal files ```lorem.txt``` and ```
 ```
 Output
 ```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat. Mauris non quam est. Donec ac arcu vitae ligula blandit interdum eu nec leo. Donec imperdiet faucibus nisl, nec iaculis nulla rutrum fringilla. Aenean in vulputate eros, at vulputate nisi.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sem eget orci malesuada
+ultricies. Phasellus iaculis lacinia odio id faucibus. Vivamus feugiat id diam eu consequat.
+Mauris non quam est. Donec ac arcu vitae ligula blandit interdum eu nec leo. Donec imperdiet
+faucibus nisl, nec iaculis nulla rutrum fringilla. Aenean in vulputate eros, at vulputate
+nisi.
 ```
 
 Finally, if you want to save it in a file called ```loremIpsum.txt```, we can use the output operator ```>``` to save the concatenation of both:
