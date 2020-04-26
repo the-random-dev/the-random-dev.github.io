@@ -5,6 +5,8 @@ tags: linux terminal basic shell
 comments: true
 key: linux-commands-2020-04-25
 sharing: true
+description: Shell is a Command Line Interface (CLI) is a very handful tool for developing and managing systems. Those commands work on Linux and macOS shell. Some of them also work on Microsoft PowerShell terminal. In the first part, let's see how to list directory contents, create directories, and how to edit a text file.
+
 ---
 
 
