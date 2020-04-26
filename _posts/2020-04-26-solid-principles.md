@@ -5,9 +5,7 @@ tags: programming SOLID principles quality
 comments: true
 key: solid-principles-2020-04-26
 sharing: true
-description: Do you have a S.O.L.I.D. code?
-S.O.L.I.D principles was introduced by Robert C. Martin, aka Uncle Bob, in 2000 and the acronym itself was introduced by Michael Feathers.
-Those are 5 principles for object-oriented programming that helps you develop a better code quality.
+description: Do you have a S.O.L.I.D. code? S.O.L.I.D principles was introduced by Robert C. Martin, aka Uncle Bob, in 2000 and the acronym itself was introduced by Michael Feathers.Those are 5 principles for object-oriented programming that helps you develop a better code quality.
 ---
 
 Do you have a S.O.L.I.D. code?
