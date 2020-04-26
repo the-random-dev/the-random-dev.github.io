@@ -23,9 +23,9 @@ It allows develop more maintainable and reusable code because each part does onl
 
 Let's see this code:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 𝙳𝚊𝚝𝚊 
+public class 𝙳𝚊𝚝𝚊 
 {
-    𝚙𝚞𝚋𝚕𝚒𝚌 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝a)
+    public void send(String data)
     {
         try
         {
@@ -44,13 +44,13 @@ Let's see this code:
 The responsability of that class is send a message. It is not a responsability what to do with an error message. Let's change it to respect our SRP Principle:
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 𝙳𝚊𝚝𝚊 
+public class 𝙳𝚊𝚝𝚊 
 {
     private Logger logger;
     
     ... // Constructor and inicialization of logger object
 
-    𝚙𝚞𝚋𝚕𝚒𝚌 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝a)
+    public void send(String data)
     {
         try
         {
@@ -67,9 +67,9 @@ The responsability of that class is send a message. It is not a responsability w
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 Logger 
+public class Logger 
 {
-    𝚙𝚞𝚋𝚕𝚒𝚌 𝚟𝚘𝚒𝚍 log(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝a)
+    public void log(S𝚝𝚛𝚒𝚗𝚐 data)
     {
         
         System.out.println(ex.ToString());
@@ -83,19 +83,19 @@ Now our class data just does data operations, while the operation of logging err
 "Software entities should be open for extension, but closed for modification": This is one of most important principle of OOP, let's do an example, in our software we can send data over Wi-Fi and Ethernet:
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 𝙳𝚊𝚝𝚊 
+public class 𝙳𝚊𝚝𝚊 
 {
-     𝚙𝚞𝚋𝚕𝚒𝚌 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝𝚊, 𝚃𝚛𝚊𝚗𝚜𝚖𝚒𝚝𝚝𝚎𝚛 𝚝𝚡)
+    public void send(String 𝚍𝚊𝚝𝚊, Transmitter tx)
     {
-        𝚒𝚏(𝚝𝚡 == 𝚃𝚛𝚊𝚗𝚜𝚖𝚒𝚝𝚝𝚎𝚛.𝚆𝙸𝙵𝙸)
+        if(tx == Transmitter.WIFI)
         {
             ...
         } 
-        𝚎𝚕𝚜𝚎 𝚒𝚏 (𝚝𝚡 == 𝚃𝚛𝚊𝚗𝚜𝚖𝚒𝚝𝚝𝚎𝚛.𝙴𝚃𝙷𝙴𝚁𝙽𝙴𝚃)
+        else if(tx == Transmitter.ETHERNET)
         {
             ...
         }
-        𝚝𝚑𝚒𝚜.𝚜𝚎𝚗𝚍𝙼𝚎𝚜𝚜𝚊𝚐𝚎(); 
+        this.sendMessage(); 
     }
 }
 ```
@@ -103,30 +103,31 @@ Every single time we have a new way to transmit data, we would change that class
 
 Data class:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚌𝚕𝚊𝚜𝚜 𝙳𝚊𝚝𝚊
+public abstract class 𝙳𝚊𝚝𝚊
 { 
-      𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝𝚊);
+    public abstract void send(String data);
 }
 ```
 A class for Wi-fi:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚌𝚕𝚊𝚜𝚜 𝚆𝚒𝚏𝚒𝙳𝚊𝚝𝚊 𝚎𝚡𝚝𝚎𝚗𝚍𝚜 𝙳𝚊𝚝𝚊
+public abstract class 𝚆if𝚒𝙳𝚊𝚝𝚊 𝚎𝚡𝚝𝚎𝚗𝚍𝚜 𝙳𝚊𝚝𝚊
 { 
-     @𝚘𝚟𝚎𝚛𝚛𝚒𝚍𝚎
-      𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝𝚊)
-      {
-          ...
-      }
+    @Override
+    public abstract void send(String data)
+    {
+        ...
+    }
 }
 ```
 Another class for Ethernet:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚌𝚕𝚊𝚜𝚜 𝙴𝚝𝚑𝚎𝚛𝚗𝚎𝚝𝙳𝚊𝚝𝚊 𝚎𝚡𝚝𝚎𝚗𝚍𝚜 𝙳𝚊𝚝𝚊{ 
-     @𝚘𝚟𝚎𝚛𝚛𝚒𝚍𝚎
-      𝚙𝚞𝚋𝚕𝚒𝚌 𝚊𝚋𝚜𝚝𝚛𝚊𝚌𝚝 𝚟𝚘𝚒𝚍 𝚜𝚎𝚗𝚍(𝚜𝚝𝚛𝚒𝚗𝚐 𝚍𝚊𝚝𝚊)
-      {
-          ...
-      }
+public abstract class 𝙴𝚝𝚑𝚎𝚛𝚗𝚎𝚝𝙳𝚊𝚝𝚊 𝚎𝚡𝚝𝚎𝚗𝚍𝚜 𝙳𝚊𝚝𝚊
+{ 
+    @Override
+    public abstract void send(String data)
+    {
+        ...
+    }
 }
 ```
 In the future, if someone needs to send data over Bluetooth, we extend our class Data (open for extension) but won't change our base class Data (closed for modification). Now we have a more reusable code.
@@ -136,16 +137,17 @@ In the future, if someone needs to send data over Bluetooth, we extend our class
 In other words:"If it looks like a duck, quacks like a duck, but need batteries, you probably have the wrong abstraction".
 Let's suppose we have our class Shape:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 𝙴𝚕𝚕𝚒𝚙𝚜𝚎 
+
+public class Ellipse 
 {
-      𝚙𝚞𝚋𝚕𝚒𝚌 𝚏𝚕𝚘𝚊𝚝 𝚊𝚛𝚎𝚊(𝚏𝚕𝚘𝚊𝚝 𝚠𝚒𝚍𝚝𝚑, 𝚏𝚕𝚘𝚊𝚝 𝚑𝚎𝚒𝚐𝚑𝚝) {…}
+      public float area(float width, float height) {…}
 }
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌  𝚌𝚕𝚊𝚜𝚜 𝙲𝚒𝚛𝚌𝚕𝚎 𝚎𝚡𝚝𝚎𝚗𝚍𝚜 𝙴𝚕𝚕𝚒𝚙𝚜𝚎
+public  class 𝙲𝚒𝚛𝚌𝚕𝚎 extends Ellipse
 {
-      𝚙𝚞𝚋𝚕𝚒𝚌 𝚏𝚕𝚘𝚊𝚝 𝚊𝚛𝚎𝚊(𝚏𝚕𝚘𝚊𝚝 𝚠𝚒𝚍𝚝𝚑, 𝚏𝚕𝚘𝚊𝚝 𝚑𝚎𝚒𝚐𝚑𝚝) {…}
+      public float area(float width, float height) {…}
 }
 ```
 
@@ -165,7 +167,7 @@ public interface IMessage
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 𝚌𝚕𝚊𝚜𝚜 UDP implements IMessage
+public class UDP implements IMessage
 {
     public void send(String data) {}
     public String receive() {}
@@ -199,7 +201,7 @@ Now we do not need to implement useless methods on our UDP class
 
 In our example we have our wifi module:
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 WifiModule extends IDevice
+public WifiModule extends IDevice
 {
     public void TurnOn()
     {
@@ -210,7 +212,7 @@ In our example we have our wifi module:
 And a class that we can turn on our Wifi Module.
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 DeviceControl
+public DeviceControl
 {
     private WifiModule wifiModule;
     
@@ -224,14 +226,14 @@ Now let's suppose we decide to change our device to a Ethernet module. We would 
 
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 interface IDevice
+public interface IDevice
 {
     public void TurnOn();
 }
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 WifiModule extends IDevice
+public WifiModule extends IDevice
 {
     public void TurnOn()
     {
@@ -241,7 +243,7 @@ Now let's suppose we decide to change our device to a Ethernet module. We would 
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 EthernetModule extends IDevice
+public EthernetModule extends IDevice
 {
     public void TurnOn()
     {
@@ -251,7 +253,7 @@ Now let's suppose we decide to change our device to a Ethernet module. We would 
 ```
 
 ```java
-𝚙𝚞𝚋𝚕𝚒𝚌 DeviceControl
+public DeviceControl
 {
     private IDevice device;
     
