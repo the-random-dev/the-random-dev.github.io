@@ -24,7 +24,7 @@ titles:
   # @end locale config
 key: page-about
 sharing: false
-sharing: false
+comments: false
 ---
 
 Full stack developer.
